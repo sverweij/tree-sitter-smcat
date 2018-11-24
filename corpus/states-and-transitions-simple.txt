@@ -1,0 +1,29 @@
+===
+two states and two transitions
+===
+on,
+off;
+
+on => off;
+off => on;
+
+---
+
+(state_machine
+    (state
+        (state_identifier)
+    )
+    (state
+        (state_identifier)
+    )
+    (transition
+        (state_identifier)
+        (arrow)
+        (state_identifier)
+    )
+    (transition
+        (state_identifier)
+        (arrow)
+        (state_identifier)
+    )
+)

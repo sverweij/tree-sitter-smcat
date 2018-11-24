@@ -1,0 +1,138 @@
+===
+one transition
+===
+a => b;
+
+---
+
+(state_machine
+    (transition
+        (state_identifier)
+        (arrow)
+        (state_identifier)
+    )
+)
+
+===
+multiple transitions
+===
+on => off;
+off => on;
+
+---
+
+(state_machine
+    (transition
+        (state_identifier)
+        (arrow)
+        (state_identifier)
+    )
+    (transition
+        (state_identifier)
+        (arrow)
+        (state_identifier)
+    )
+)
+
+
+===
+transitions - various arrow shapes
+===
+a -> b;
+a =>> b;
+a => b;
+a >> b;
+a :> b;
+a -- b;
+a == b;
+a <- b;
+a <<= b;
+a <= b;
+a << b;
+a <: b;
+
+---
+
+(state_machine
+    (transition
+        (state_identifier)
+        (arrow)
+        (state_identifier)
+    )
+    (transition
+        (state_identifier)
+        (arrow)
+        (state_identifier)
+    )
+    (transition
+        (state_identifier)
+        (arrow)
+        (state_identifier)
+    )
+    (transition
+        (state_identifier)
+        (arrow)
+        (state_identifier)
+    )
+    (transition
+        (state_identifier)
+        (arrow)
+        (state_identifier)
+    )
+    (transition
+        (state_identifier)
+        (arrow)
+        (state_identifier)
+    )
+    (transition
+        (state_identifier)
+        (arrow)
+        (state_identifier)
+    )
+    (transition
+        (state_identifier)
+        (arrow)
+        (state_identifier)
+    )
+    (transition
+        (state_identifier)
+        (arrow)
+        (state_identifier)
+    )
+    (transition
+        (state_identifier)
+        (arrow)
+        (state_identifier)
+    )
+    (transition
+        (state_identifier)
+        (arrow)
+        (state_identifier)
+    )
+    (transition
+        (state_identifier)
+        (arrow)
+        (state_identifier)
+    )
+)
+
+===
+multiple transitions states as strings
+===
+"lamp on" => off;
+off => "lamp on";
+
+---
+
+(state_machine
+    (transition
+        (state_identifier)
+        (arrow)
+        (state_identifier)
+    )
+    (transition
+        (state_identifier)
+        (arrow)
+        (state_identifier)
+    )
+)

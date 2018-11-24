@@ -1,0 +1,85 @@
+===
+one state
+===
+on;
+
+---
+
+(state_machine
+    (state
+        (state_identifier)
+    )
+)
+
+===
+two states
+===
+on,
+off;
+
+---
+
+(state_machine
+    (state
+        (state_identifier)
+    )
+    (state
+        (state_identifier)
+    )
+)
+
+===
+three states
+===
+on,
+off,
+standby;
+
+---
+
+(state_machine
+    (state
+        (state_identifier)
+    )
+    (state
+        (state_identifier)
+    )
+    (state
+        (state_identifier)
+    )
+)
+
+===
+state defined as a string
+===
+
+"this is state as a string";
+
+---
+
+(state_machine
+    (state
+        (state_identifier)
+    )
+)
+
+===
+states defined as a string and states defined as an identifier
+===
+
+"lamp on",
+"lamp off",
+standby;
+---
+
+(state_machine
+    (state
+        (state_identifier)
+    )
+    (state
+        (state_identifier)
+    )
+    (state
+        (state_identifier)
+    )
+)

@@ -1,0 +1,41 @@
+{
+  "name": "tree-sitter-smcat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tree-sitter generate && node-gyp build",
+    "lint": "eslint grammar.js",
+    "lint:fix": "eslint --fix grammar.js",
+    "test": "tree-sitter test"
+  },
+  "keywords": [],
+  "author": "Sander Verweij (https://sverweij.github.io/)",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "nan": "2.11.1"
+  },
+  "devDependencies": {
+    "eslint": "5.9.0",
+    "eslint-config-standard": "12.0.0",
+    "eslint-plugin-import": "2.14.0",
+    "eslint-plugin-node": "8.0.0",
+    "eslint-plugin-promise": "4.0.1",
+    "eslint-plugin-standard": "4.0.0",
+    "tree-sitter-cli": "0.13.10"
+  },
+  "eslintConfig": {
+    "extends": "standard",
+    "globals": {
+      "grammar": false,
+      "seq": false,
+      "choice": false,
+      "repeat": false,
+      "repeat1": false,
+      "optional": false,
+      "prec": false,
+      "token": false,
+      "alias": false
+    }
+  }
+}

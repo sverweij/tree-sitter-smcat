@@ -1,0 +1,99 @@
+===
+one transition with empty attributes
+===
+a => b [];
+
+---
+
+(state_machine
+    (transition
+        (state_identifier)
+        (arrow)
+        (state_identifier)
+    )
+)
+
+===
+one transition with a color attribute
+===
+a => b [color="red"];
+
+---
+
+(state_machine
+    (transition
+        (state_identifier)
+        (arrow)
+        (state_identifier)
+        (color)
+    )
+)
+
+
+===
+one transition with two color attribute (weird but legal)
+===
+a => b [color="red" color="blue"];
+
+---
+
+(state_machine
+    (transition
+        (state_identifier)
+        (arrow)
+        (state_identifier)
+        (color)
+        (color)
+    )
+)
+
+
+===
+one transition with a label attribute - TODO: make unquoted
+===
+a => b: "this is a label";
+
+---
+
+(state_machine
+    (transition
+        (state_identifier)
+        (arrow)
+        (state_identifier)
+        (label)
+    )
+)
+
+
+===
+one transition with a quoted label attribute
+===
+a => b: "this, is a quoted label";
+
+---
+
+(state_machine
+    (transition
+        (state_identifier)
+        (arrow)
+        (state_identifier)
+        (label)
+    )
+)
+
+===
+one transition with a color and a label attribute
+===
+a => b [color="green"]: "this is a label";
+
+---
+
+(state_machine
+    (transition
+        (state_identifier)
+        (arrow)
+        (state_identifier)
+        (color)
+        (label)
+    )
+)

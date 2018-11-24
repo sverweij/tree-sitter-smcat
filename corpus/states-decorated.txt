@@ -1,0 +1,99 @@
+===
+one state - empty standard attributes
+===
+on:;
+
+---
+
+(state_machine
+    (state
+        (state_identifier)
+        (actions)
+    )
+)
+
+===
+one state - standard attributes TODO - unquoted here
+===
+on: "onentry/ lights on";
+
+---
+
+(state_machine
+    (state
+        (state_identifier)
+        (actions)
+    )
+)
+
+===
+one state - standard attributes; quoted
+===
+on: "onentry/ lights off, spot on";
+
+---
+
+(state_machine
+    (state
+        (state_identifier)
+        (actions)
+    )
+)
+
+===
+one state - empty extended attributes
+===
+on [];
+
+---
+
+(state_machine
+    (state
+        (state_identifier)
+    )
+)
+
+===
+one state - extended attribute
+===
+on [active];
+
+---
+
+(state_machine
+    (state
+        (state_identifier)
+        (active)
+    )
+)
+
+===
+one state - key-value extended attribute
+===
+on [color="red"];
+
+---
+
+(state_machine
+    (state
+        (state_identifier)
+        (color)
+    )
+)
+
+===
+one state - extended and standard attributes
+===
+on [color="green" label="Its On!!" active]: "onentry/ lights on";
+
+---
+
+(state_machine
+    (state
+        (state_identifier)
+        (color)
+        (label)
+        (active)
+        (actions)
+    )
+)
