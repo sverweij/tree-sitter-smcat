@@ -1,7 +1,7 @@
 {
   "name": "tree-sitter-smcat",
   "version": "1.0.0",
-  "description": "",
+  "description": "Tree-sitter grammar for state-machine-cat",
   "main": "index.js",
   "scripts": {
     "build": "tree-sitter generate && node-gyp build",
@@ -9,9 +9,13 @@
     "lint:fix": "eslint --fix grammar.js",
     "test": "tree-sitter test"
   },
-  "keywords": [],
+  "keywords": [
+    "tree-sitter",
+    "grammar",
+    "state-machine-cat"
+  ],
   "author": "Sander Verweij (https://sverweij.github.io/)",
-  "license": "GPL-3.0",
+  "license": "MIT",
   "dependencies": {
     "nan": "2.11.1"
   },
