@@ -4,10 +4,15 @@
   "description": "Tree-sitter grammar for state-machine-cat",
   "main": "index.js",
   "scripts": {
-    "build": "tree-sitter generate && node-gyp build",
+    "build": "run-s build:generate build:gyp",
+    "build:generate": "tree-sitter generate",
+    "build:gyp": "node-gyp build",
     "lint": "eslint grammar.js",
     "lint:fix": "eslint --fix grammar.js",
-    "test": "tree-sitter test"
+    "test": "tree-sitter test",
+    "update-dependencies": "run-s upem:update upem:install lint:fix build test",
+    "upem:install": "npm install",
+    "upem:update": "npm outdated --json | upem"
   },
   "keywords": [
     "tree-sitter",
@@ -27,7 +32,9 @@
     "eslint-plugin-promise": "4.0.1",
     "eslint-plugin-standard": "4.0.0",
     "node-gyp": "3.8.0",
-    "tree-sitter-cli": "0.13.10"
+    "npm-run-all": "4.1.5",
+    "tree-sitter-cli": "0.13.10",
+    "upem": "1.0.2"
   },
   "eslintConfig": {
     "extends": "standard",
