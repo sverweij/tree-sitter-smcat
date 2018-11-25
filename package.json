@@ -21,6 +21,14 @@
   ],
   "author": "Sander Verweij (https://sverweij.github.io/)",
   "license": "MIT",
+  "files": [
+    "binding.gyp",
+    "index.js",
+    "LICENSE",
+    "README.md",
+    "package.json",
+    "src/"
+  ],
   "dependencies": {
     "nan": "2.11.1"
   },
@@ -49,5 +57,13 @@
       "token": false,
       "alias": false
     }
+  },
+  "homepage": "https://state-machine-cat.js.org",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sverweij/tree-sitter-smcat"
+  },
+  "bugs": {
+    "url": "https://github.com/sverweij/tree-sitter-smcat/issues"
   }
 }
