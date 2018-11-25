@@ -6,8 +6,11 @@ on;
 ---
 
 (state_machine
-    (state
-        (state_identifier)
+    (states
+        (state
+            (state_identifier)
+        )
+        (semicolon)
     )
 )
 
@@ -20,11 +23,15 @@ off;
 ---
 
 (state_machine
-    (state
-        (state_identifier)
-    )
-    (state
-        (state_identifier)
+    (states
+        (state
+            (state_identifier)
+        )
+        (comma)
+        (state
+            (state_identifier)
+        )
+        (semicolon)
     )
 )
 
@@ -38,14 +45,19 @@ standby;
 ---
 
 (state_machine
-    (state
-        (state_identifier)
-    )
-    (state
-        (state_identifier)
-    )
-    (state
-        (state_identifier)
+    (states
+        (state
+            (state_identifier)
+        )
+        (comma)
+        (state
+            (state_identifier)
+        )
+        (comma)
+        (state
+            (state_identifier)
+        )
+        (semicolon)
     )
 )
 
@@ -58,8 +70,11 @@ state defined as a string
 ---
 
 (state_machine
-    (state
-        (state_identifier)
+    (states
+        (state
+            (state_identifier)
+        )
+        (semicolon)
     )
 )
 
@@ -73,13 +88,18 @@ standby;
 ---
 
 (state_machine
-    (state
-        (state_identifier)
-    )
-    (state
-        (state_identifier)
-    )
-    (state
-        (state_identifier)
+    (states
+        (state
+            (state_identifier)
+        )
+        (comma)
+        (state
+            (state_identifier)
+        )
+        (comma)
+        (state
+            (state_identifier)
+        )
+        (semicolon)
     )
 )

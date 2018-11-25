@@ -6,9 +6,14 @@ on:;
 ---
 
 (state_machine
-    (state
-        (state_identifier)
-        (actions)
+    (states
+        (state
+            (state_identifier)
+            (actions
+                (colon)
+            )
+        )
+        (semicolon)
     )
 )
 
@@ -20,9 +25,15 @@ on: "onentry/ lights on";
 ---
 
 (state_machine
-    (state
-        (state_identifier)
-        (actions)
+    (states
+        (state
+            (state_identifier)
+            (actions
+                (colon)
+                (string)
+            )
+        )
+        (semicolon)
     )
 )
 
@@ -34,9 +45,15 @@ on: "onentry/ lights off, spot on";
 ---
 
 (state_machine
-    (state
-        (state_identifier)
-        (actions)
+    (states
+        (state
+            (state_identifier)
+            (actions
+                (colon)
+                (string)
+            )
+        )
+        (semicolon)
     )
 )
 
@@ -48,8 +65,15 @@ on [];
 ---
 
 (state_machine
-    (state
-        (state_identifier)
+    (states
+        (state
+            (state_identifier)
+            (extended_state_attributes
+                (square_bracket_open)
+                (square_bracket_close)
+            )
+        )
+        (semicolon)
     )
 )
 
@@ -61,9 +85,17 @@ on [active];
 ---
 
 (state_machine
-    (state
-        (state_identifier)
-        (active)
+    (states
+        (state
+            (state_identifier)
+            (extended_state_attributes
+                (square_bracket_open)
+                (extended_state_key)
+                (square_bracket_close)
+            )
+            
+        )
+        (semicolon)
     )
 )
 
@@ -75,9 +107,18 @@ on [color="red"];
 ---
 
 (state_machine
-    (state
-        (state_identifier)
-        (color)
+    (states
+        (state
+            (state_identifier)
+            (extended_state_attributes
+                (square_bracket_open)
+                (extended_state_key)
+                (equals)
+                (extended_state_value)
+                (square_bracket_close)
+            )
+        )
+        (semicolon)
     )
 )
 
@@ -89,11 +130,25 @@ on [color="green" label="Its On!!" active]: "onentry/ lights on";
 ---
 
 (state_machine
-    (state
-        (state_identifier)
-        (color)
-        (label)
-        (active)
-        (actions)
+    (states
+        (state
+            (state_identifier)
+            (extended_state_attributes
+                (square_bracket_open)
+                (extended_state_key)
+                (equals)
+                (extended_state_value)
+                (extended_state_key)
+                (equals)
+                (extended_state_value)
+                (extended_state_key)
+                (square_bracket_close)
+            )
+            (actions
+                (colon)
+                (string)
+            )
+        )
+        (semicolon)
     )
 )

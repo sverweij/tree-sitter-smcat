@@ -6,10 +6,17 @@ a => b [];
 ---
 
 (state_machine
-    (transition
-        (state_identifier)
-        (arrow)
-        (state_identifier)
+    (transitions
+        (transition
+            (state_identifier)
+            (arrow)
+            (state_identifier)
+            (extended_transition_attributes
+                (square_bracket_open)
+                (square_bracket_close)
+            )
+        )
+        (semicolon)
     )
 )
 
@@ -21,29 +28,49 @@ a => b [color="red"];
 ---
 
 (state_machine
-    (transition
-        (state_identifier)
-        (arrow)
-        (state_identifier)
-        (color)
+    (transitions
+        (transition
+            (state_identifier)
+            (arrow)
+            (state_identifier)
+            (extended_transition_attributes
+                (square_bracket_open)
+                    (extended_transition_key)
+                    (equals)
+                    (extended_transition_value)
+                (square_bracket_close)
+            )
+        )
+        (semicolon)
     )
 )
 
 
 ===
-one transition with two color attribute (weird but legal)
+one transition with two color attributes (weird but legal)
 ===
 a => b [color="red" color="blue"];
 
 ---
 
 (state_machine
-    (transition
-        (state_identifier)
-        (arrow)
-        (state_identifier)
-        (color)
-        (color)
+    (transitions
+        (transition
+            (state_identifier)
+            (arrow)
+            (state_identifier)
+            (extended_transition_attributes
+                (square_bracket_open)
+                    (extended_transition_key)
+                    (equals)
+                    (extended_transition_value)
+                    (extended_transition_key)
+                    (equals)
+                    (extended_transition_value)
+                (square_bracket_close)
+            )
+        )
+        (semicolon)
     )
 )
 
@@ -56,11 +83,17 @@ a => b: "this is a label";
 ---
 
 (state_machine
-    (transition
-        (state_identifier)
-        (arrow)
-        (state_identifier)
-        (label)
+    (transitions
+        (transition
+            (state_identifier)
+            (arrow)
+            (state_identifier)
+            (label
+                (colon)
+                (string)
+            )
+        )
+        (semicolon)
     )
 )
 
@@ -73,11 +106,17 @@ a => b: "this, is a quoted label";
 ---
 
 (state_machine
-    (transition
-        (state_identifier)
-        (arrow)
-        (state_identifier)
-        (label)
+    (transitions
+        (transition
+            (state_identifier)
+            (arrow)
+            (state_identifier)
+            (label
+                (colon)
+                (string)
+            )
+        )
+        (semicolon)
     )
 )
 
@@ -89,11 +128,23 @@ a => b [color="green"]: "this is a label";
 ---
 
 (state_machine
-    (transition
-        (state_identifier)
-        (arrow)
-        (state_identifier)
-        (color)
-        (label)
+    (transitions
+        (transition
+            (state_identifier)
+            (arrow)
+            (state_identifier)
+            (extended_transition_attributes
+                (square_bracket_open)
+                    (extended_transition_key)
+                    (equals)
+                    (extended_transition_value)
+                (square_bracket_close)
+            )
+            (label
+                (colon)
+                (string)
+            )
+        )
+        (semicolon)
     )
 )

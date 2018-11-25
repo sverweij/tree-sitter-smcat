@@ -1,0 +1,226 @@
+===
+kitchensink smoke test (quoted strings only)
+===
+
+/* 
+ * kitchensink state machine for 
+ * smoke testing the tree-sitter state-machine-cat parser
+ */
+
+// states
+initial,
+# standby,
+# ready for action, ...
+"media player off" [color="red"],
+"media player on" [color="darkgreen"]: 
+    "entry/ play welcome message
+    exit/ say goodbye" {
+
+    // states
+    stopped:
+      "entry/ light red",
+    playing [color="darkgreen" active]:
+      "entry/ light green",
+    paused [ color="blue"]:
+      "entry/ blink green";
+    
+    // transitions
+    stopped => playing: "play";
+    playing => stopped: "stop";
+    playing => paused: "pause";
+
+    # we might react to the 'play' 
+    # event for this transition 
+    # as well
+    paused => playing: "pause";
+    paused => stopped: "stop";
+};
+
+
+// transitions
+initial => "media player off";
+"media player off" => stopped [color="darkgreen"]: "power";
+"media player on" => "media player off" [color="red"]: "power";
+
+---
+(state_machine 
+  (comment) 
+  (comment) 
+  (states
+    (state
+      (state_identifier)
+    )
+    (comma)
+    (state
+      (note)
+      (state_identifier)
+      (extended_state_attributes
+        (square_bracket_open)
+        (extended_state_key)
+        (equals)
+        (extended_state_value)
+        (square_bracket_close)
+      )
+    )
+    (comma)
+    (state
+      (state_identifier)
+      (extended_state_attributes
+        (square_bracket_open)
+        (extended_state_key)
+        (equals)
+        (extended_state_value)
+        (square_bracket_close)
+      )
+      (actions
+        (colon)
+        (string)
+      )
+      (nested_state_machine
+        (curly_bracket_open)
+        (comment)
+        (states
+          (state
+            (state_identifier)
+            (actions
+              (colon)
+              (string)
+            )
+          )
+          (comma)
+          (state
+            (state_identifier)
+            (extended_state_attributes
+              (square_bracket_open)
+              (extended_state_key)
+              (equals)
+              (extended_state_value)
+              (extended_state_key)
+              (square_bracket_close)
+            )
+            (actions
+              (colon)
+              (string)
+            )
+          )
+          (comma)
+          (state
+            (state_identifier)
+              (extended_state_attributes
+                (square_bracket_open)
+                (extended_state_key)
+                (equals)
+                (extended_state_value)
+                (square_bracket_close)
+              )
+              (actions
+                (colon)
+                (string)
+              )
+            )
+            (semicolon)
+          )
+          (comment)
+          (transitions
+            (transition
+              (state_identifier)
+              (arrow)
+              (state_identifier)
+              (label
+                (colon)
+                (string)
+              )
+            )
+            (semicolon)
+              (transition
+                (state_identifier)
+                (arrow)
+                (state_identifier)
+                (label
+                  (colon)
+                  (string)
+                )
+              )
+              (semicolon)
+              (transition
+                (state_identifier)
+                (arrow)
+                (state_identifier)
+                (label
+                  (colon)
+                  (string)
+                )
+              )
+              (semicolon)
+              (transition
+                (note)
+                (state_identifier)
+                (arrow)
+                (state_identifier)
+                (label
+                  (colon)
+                  (string)
+                )
+              )
+              (semicolon)
+              (transition
+                (state_identifier)
+                (arrow)
+                (state_identifier)
+                (label
+                  (colon)
+                  (string)
+                )
+              )
+              (semicolon)
+            )
+            (curly_bracket_close)
+          )
+        )
+        (semicolon)
+      )
+      (comment)
+      (transitions
+        (transition
+          (state_identifier)
+          (arrow)
+          (state_identifier)
+        )
+        (semicolon)
+        (transition
+          (state_identifier)
+          (arrow)
+          (state_identifier)
+          (extended_transition_attributes
+            (square_bracket_open)
+            (extended_transition_key)
+            (equals)
+            (extended_transition_value)
+            (square_bracket_close)
+          )
+          (label
+            (colon)
+            (string)
+          )
+        )
+        (semicolon)
+        (transition
+          (state_identifier)
+          (arrow)
+          (state_identifier)
+          (extended_transition_attributes
+            (square_bracket_open)
+            (extended_transition_key)
+            (equals)
+            (extended_transition_value)
+            (square_bracket_close)
+          )
+          (label
+            (colon)
+            (string)
+          )
+        )
+        (semicolon)
+      )
+    )
+

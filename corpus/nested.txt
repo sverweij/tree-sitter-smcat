@@ -1,0 +1,99 @@
+===
+nested - state in state
+===
+a {
+    aa;
+};
+
+---
+
+(state_machine
+    (states
+        (state
+            (state_identifier)
+            (nested_state_machine
+                (curly_bracket_open)
+                (states
+                    (state
+                        (state_identifier)
+                    )
+                    (semicolon)
+                )
+                (curly_bracket_close)
+            )
+        )
+        (semicolon)
+    )
+)
+
+===
+nested - state in state with decoration
+===
+a {
+    aa[active color="green"]: "entry/hi son";
+};
+
+---
+
+(state_machine
+    (states
+        (state
+            (state_identifier)
+            (nested_state_machine
+                (curly_bracket_open)
+                (states
+                    (state
+                        (state_identifier)
+                        (extended_state_attributes
+                            (square_bracket_open)
+                            (extended_state_key)
+                            (extended_state_key)
+                            (equals)
+                            (extended_state_value)
+                            
+                            (square_bracket_close)
+                        )
+                        (actions
+                            (colon)
+                            (string)
+                        )
+                    )
+                    (semicolon)
+                )
+                (curly_bracket_close)
+            )
+        )
+        (semicolon)
+    )
+)
+
+
+===
+nested - transitions in state
+===
+a {
+    aa => bb;
+};
+
+---
+
+(state_machine
+    (states
+        (state
+            (state_identifier)
+            (nested_state_machine
+                (curly_bracket_open)
+                (transitions
+                    (transition
+                        (state_identifier)
+                        (arrow)
+                        (state_identifier)
+                    )
+                    (semicolon)
+                )
+                (curly_bracket_close)
+            )
+        )
+        (semicolon)
+    )
+)

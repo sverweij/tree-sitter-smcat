@@ -6,10 +6,13 @@ a => b;
 ---
 
 (state_machine
-    (transition
-        (state_identifier)
-        (arrow)
-        (state_identifier)
+    (transitions
+        (transition
+            (state_identifier)
+            (arrow)
+            (state_identifier)
+        )
+        (semicolon)
     )
 )
 
@@ -22,15 +25,19 @@ off => on;
 ---
 
 (state_machine
-    (transition
-        (state_identifier)
-        (arrow)
-        (state_identifier)
-    )
-    (transition
-        (state_identifier)
-        (arrow)
-        (state_identifier)
+    (transitions
+        (transition
+            (state_identifier)
+            (arrow)
+            (state_identifier)
+        )
+        (semicolon)
+        (transition
+            (state_identifier)
+            (arrow)
+            (state_identifier)
+        )
+        (semicolon)
     )
 )
 
@@ -54,65 +61,79 @@ a <: b;
 ---
 
 (state_machine
-    (transition
-        (state_identifier)
-        (arrow)
-        (state_identifier)
-    )
-    (transition
-        (state_identifier)
-        (arrow)
-        (state_identifier)
-    )
-    (transition
-        (state_identifier)
-        (arrow)
-        (state_identifier)
-    )
-    (transition
-        (state_identifier)
-        (arrow)
-        (state_identifier)
-    )
-    (transition
-        (state_identifier)
-        (arrow)
-        (state_identifier)
-    )
-    (transition
-        (state_identifier)
-        (arrow)
-        (state_identifier)
-    )
-    (transition
-        (state_identifier)
-        (arrow)
-        (state_identifier)
-    )
-    (transition
-        (state_identifier)
-        (arrow)
-        (state_identifier)
-    )
-    (transition
-        (state_identifier)
-        (arrow)
-        (state_identifier)
-    )
-    (transition
-        (state_identifier)
-        (arrow)
-        (state_identifier)
-    )
-    (transition
-        (state_identifier)
-        (arrow)
-        (state_identifier)
-    )
-    (transition
-        (state_identifier)
-        (arrow)
-        (state_identifier)
+    (transitions
+        (transition
+            (state_identifier)
+            (arrow)
+            (state_identifier)
+        )
+        (semicolon)
+        (transition
+            (state_identifier)
+            (arrow)
+            (state_identifier)
+        )
+        (semicolon)
+        (transition
+            (state_identifier)
+            (arrow)
+            (state_identifier)
+        )
+        (semicolon)
+        (transition
+            (state_identifier)
+            (arrow)
+            (state_identifier)
+        )
+        (semicolon)
+        (transition
+            (state_identifier)
+            (arrow)
+            (state_identifier)
+        )
+        (semicolon)
+        (transition
+            (state_identifier)
+            (arrow)
+            (state_identifier)
+        )
+        (semicolon)
+        (transition
+            (state_identifier)
+            (arrow)
+            (state_identifier)
+        )
+        (semicolon)
+        (transition
+            (state_identifier)
+            (arrow)
+            (state_identifier)
+        )
+        (semicolon)
+        (transition
+            (state_identifier)
+            (arrow)
+            (state_identifier)
+        )
+        (semicolon)
+        (transition
+            (state_identifier)
+            (arrow)
+            (state_identifier)
+        )
+        (semicolon)
+        (transition
+            (state_identifier)
+            (arrow)
+            (state_identifier)
+        )
+        (semicolon)
+        (transition
+            (state_identifier)
+            (arrow)
+            (state_identifier)
+        )
+        (semicolon)
     )
 )
 
@@ -125,14 +146,18 @@ off => "lamp on";
 ---
 
 (state_machine
-    (transition
-        (state_identifier)
-        (arrow)
-        (state_identifier)
-    )
-    (transition
-        (state_identifier)
-        (arrow)
-        (state_identifier)
+    (transitions
+        (transition
+            (state_identifier)
+            (arrow)
+            (state_identifier)
+        )
+        (semicolon)
+        (transition
+            (state_identifier)
+            (arrow)
+            (state_identifier)
+        )
+        (semicolon)
     )
 )

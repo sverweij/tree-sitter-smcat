@@ -1,0 +1,115 @@
+===
+notes - one line for one state
+===
+
+# note for transition a => b
+a => b;
+
+---
+(state_machine
+    (transitions
+        (transition
+            (note)
+            (state_identifier)
+            (arrow)
+            (state_identifier)
+        )
+        (semicolon)
+    )
+)
+
+===
+notes - one line for the first state of several
+===
+
+# note for transition a => b
+a => b;
+b => c;
+
+---
+(state_machine
+    (transitions
+        (transition
+            (note)
+            (state_identifier)
+            (arrow)
+            (state_identifier)
+        )
+        (semicolon)
+        (transition
+            (state_identifier)
+            (arrow)
+            (state_identifier)
+        )
+        (semicolon)
+    )
+)
+
+===
+notes - multiple lines for the second state of several
+===
+
+a => b;
+# note for transition
+# b => c
+b => c;
+
+---
+(state_machine
+    (transitions
+        (transition
+            (state_identifier)
+            (arrow)
+            (state_identifier)
+        )
+        (semicolon)
+        (transition
+            (note)
+            (state_identifier)
+            (arrow)
+            (state_identifier)
+        )
+        (semicolon)
+    )
+)
+
+===
+notes - multiple lines for the second state of several, nested in a state
+===
+on {
+    a => b;
+    # note for nestedtransition
+    # b => c
+    b => c;
+};
+
+
+---
+(state_machine
+    (states
+        (state
+            (state_identifier)
+            (nested_state_machine
+                (curly_bracket_open)
+                    (transitions
+                        (transition
+                            (state_identifier)
+                            (arrow)
+                            (state_identifier)
+                        )
+                        (semicolon)
+                        (transition
+                            (note)
+                            (state_identifier)
+                            (arrow)
+                            (state_identifier)
+                        )
+                        (semicolon)
+                    )
+                (curly_bracket_close)
+            )
+        )
+        (semicolon)
+    )
+
+)

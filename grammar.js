@@ -1,96 +1,117 @@
 module.exports = grammar({
   name: 'smcat',
 
+  extras: $ => [
+    $.comment,
+    /[\s]/
+  ],
+
   rules: {
     state_machine: $ => seq(
-      optional($._states),
-      optional($._transitions)
+      optional($.states),
+      optional($.transitions)
     ),
 
-    _states: $ => seq(
+    // states
+    states: $ => seq(
       repeat(
         seq(
           $.state,
-          ','
+          $.comma
         )
       ),
       $.state,
-      ';'
+      $.semicolon
     ),
 
     state: $ => seq(
+      optional($.note),
       $.state_identifier,
-      optional($._extended_state_attributes),
-      optional($.actions)
+      optional($.extended_state_attributes),
+      optional($.actions),
+      optional($.nested_state_machine)
     ),
 
     actions: $ => seq(
-      ':',
+      $.colon,
       optional(
-        choice(
-          $._quoted_string
-        // TODO: make non-quoted strings work alongside quoted ones
-        // /[^,;]*/
+        $.string
+      )
+    ),
+
+    extended_state_attributes: $ => seq(
+      $.square_bracket_open,
+      repeat(
+        $._extended_state_attribute
+      ),
+      $.square_bracket_close
+    ),
+
+    _extended_state_attribute: $ => seq(
+      $.extended_state_key,
+      optional(
+        seq(
+          $.equals,
+          $.extended_state_value
         )
       )
     ),
 
-    _extended_state_attributes: $ => seq(
-      '[',
-      repeat(
-        $._extended_state_attribute
-      ),
-      ']'
-    ),
-
-    _extended_state_attribute: $ => choice(
-      $.color,
-      $.label,
-      $.active
-    ),
-
-    color: $ => seq(
+    extended_state_key: $ => choice(
       'color',
-      '=',
-      $._quoted_string
-    ),
-
-    label: $ => seq(
       'label',
-      '=',
-      $._quoted_string
+      'active'
     ),
 
-    active: $ => 'active',
+    extended_state_value: $ => $._quoted_string,
 
-    _transitions: $ => repeat1(
-      $.transition
+    nested_state_machine: $ => seq(
+      $.curly_bracket_open,
+      seq(
+        optional($.states),
+        optional($.transitions)
+      ),
+      $.curly_bracket_close
+    ),
+
+    // transitions
+    transitions: $ => repeat1(
+      seq(
+        $.transition,
+        $.semicolon
+      )
     ),
 
     transition: $ => seq(
+      optional($.note),
       $.state_identifier,
       $.arrow,
       $.state_identifier,
-      optional($._extended_transition_attributes),
-      optional(
-        alias($.actions, 'label')
-      ),
-      ';'
+      optional($.extended_transition_attributes),
+      optional(alias($.actions, 'label'))
     ),
 
-    _extended_transition_attributes: $ => seq(
-      '[',
+    extended_transition_attributes: $ => seq(
+      $.square_bracket_open,
       repeat(
         $._extended_transition_attribute
       ),
-      ']'
+      $.square_bracket_close
     ),
 
     _transition_label_attribute: $ => choice(
       $._quoted_string
     ),
 
-    _extended_transition_attribute: $ => $.color,
+    _extended_transition_attribute: $ => seq(
+      $.extended_transition_key,
+      $.equals,
+      $.extended_transition_value
+    ),
+
+    extended_transition_key: $ => 'color',
+
+    extended_transition_value: $ => $._quoted_string,
 
     arrow: $ => choice(
       '->',
@@ -107,6 +128,30 @@ module.exports = grammar({
       '<:'
     ),
 
+    // generic definitions
+    note: $ => repeat1(
+      seq(
+        '#',
+        /.*/
+      )
+    ),
+
+    curly_bracket_open: $ => '{',
+
+    curly_bracket_close: $ => '}',
+
+    square_bracket_open: $ => '[',
+
+    square_bracket_close: $ => ']',
+
+    equals: $ => '=',
+
+    comma: $ => ',',
+
+    colon: $ => ':',
+
+    semicolon: $ => ';',
+
     _identifier: $ => /([^;, "\t\n\r=\-><:{[])+/,
 
     state_identifier: $ => choice(
@@ -114,10 +159,29 @@ module.exports = grammar({
       $._quoted_string
     ),
 
+    string: $ => choice(
+      $._quoted_string
+      // TODO: make non-quoted strings work alongside quoted ones
+      // /[^,;]*/
+    ),
+
     _quoted_string: $ => seq(
       '"',
       /[^"]*/,
       '"'
-    )
+    ),
+
+    // comment matching: shamelessly stolen from the c tree sitter grammer
+    // at https://github.com/tree-sitter/tree-sitter-c/blob/master/grammar.js
+    // ... and they reference stackoverflow:
+    // http://stackoverflow.com/questions/13014947/regex-to-match-a-c-style-multiline-comment/36328890#36328890
+    comment: $ => token(choice(
+      seq('//', /.*/),
+      seq(
+        '/*',
+        /[^*]*\*+([^/*][^*]*\*+)*/,
+        '/'
+      )
+    ))
   }
 })

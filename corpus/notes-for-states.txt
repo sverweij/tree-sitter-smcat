@@ -1,0 +1,120 @@
+===
+notes - one line for one state
+===
+
+# note for state a
+a;
+
+---
+(state_machine
+    (states
+        (state
+            (note)
+            (state_identifier)
+        )
+        (semicolon)
+    )
+)
+
+===
+notes - multiple lines for one state
+===
+
+# note for 
+# state a
+a;
+
+---
+(state_machine
+    (states
+        (state
+            (note)
+            (state_identifier)
+        )
+        (semicolon)
+    )
+)
+
+===
+notes - multiple lines for first state of multiple
+===
+
+# note for 
+# state a
+a,
+b;
+
+---
+(state_machine
+    (states
+        (state
+            (note)
+            (state_identifier)
+        )
+        (comma)
+        (state
+            (state_identifier)
+        )
+        (semicolon)
+    )
+
+)
+===
+notes - multiple lines for second state of multiple
+===
+
+a,
+# note for 
+# state b
+b: "some action";
+
+---
+(state_machine
+    (states
+        (state
+            (state_identifier)
+        )
+        (comma)
+        (state
+            (note)
+            (state_identifier)
+            (actions
+                (colon)
+                (string)
+            )
+        )
+        (semicolon)
+    )
+
+)
+
+===
+notes - one line for nested state
+===
+
+
+a {
+    # note for state aa
+    aa;
+};
+
+---
+(state_machine
+    (states
+        (state
+            (state_identifier)
+            (nested_state_machine
+                (curly_bracket_open)
+                (states
+                    (state
+                        (note)
+                        (state_identifier)
+                    )
+                    (semicolon)
+                )
+                (curly_bracket_close)
+            )
+        )
+        (semicolon)
+    )
+)

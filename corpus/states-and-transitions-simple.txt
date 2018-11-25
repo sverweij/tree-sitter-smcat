@@ -10,20 +10,28 @@ off => on;
 ---
 
 (state_machine
-    (state
-        (state_identifier)
+    (states
+        (state
+            (state_identifier)
+        )
+        (comma)
+        (state
+            (state_identifier)
+        )
+        (semicolon)
     )
-    (state
-        (state_identifier)
-    )
-    (transition
-        (state_identifier)
-        (arrow)
-        (state_identifier)
-    )
-    (transition
-        (state_identifier)
-        (arrow)
-        (state_identifier)
+    (transitions
+        (transition
+            (state_identifier)
+            (arrow)
+            (state_identifier)
+        )
+        (semicolon)
+        (transition
+            (state_identifier)
+            (arrow)
+            (state_identifier)
+        )
+        (semicolon)
     )
 )
