@@ -1,6 +1,6 @@
 {
   "name": "tree-sitter-smcat",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Tree-sitter grammar for state-machine-cat",
   "main": "index.js",
   "scripts": {
