@@ -481,7 +481,7 @@
     },
     "_identifier": {
       "type": "PATTERN",
-      "value": "([^;, \"\\t\\n\\r=\\-><:{[])+"
+      "value": "([^;, \"\\t\\n\\r=\\-><:{\\[])+"
     },
     "state_identifier": {
       "type": "CHOICE",

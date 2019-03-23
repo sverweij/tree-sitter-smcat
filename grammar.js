@@ -152,7 +152,8 @@ module.exports = grammar({
 
     semicolon: $ => ';',
 
-    _identifier: $ => /([^;, "\t\n\r=\-><:{[])+/,
+    /* eslint no-useless-escape:0 */
+    _identifier: $ => /([^;, "\t\n\r=\-><:{\[])+/,
 
     state_identifier: $ => choice(
       $._identifier,
